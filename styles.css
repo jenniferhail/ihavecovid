@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Inclusive+Sans&family=Monsieur+La+Doulaise&display=swap');
 
+:root {
+  --doc-height: 100%;
+}
+
 body {
-  margin: 50px;
   overflow: hidden;
   background-color: #ede9e3;
   color: #2151c9;
@@ -9,6 +12,10 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Inclusive Sans', sans-serif;
+  height: 100vh; /* fallback for Js load */
+  height: var(--doc-height);
+  margin: 0;
+  padding: 0;
 }
 
 svg text {
@@ -31,7 +38,8 @@ path {
 }
 
 main {
-  height: calc(100vh - 50px * 2);
+  margin: 50px;
+  height: calc(var(--doc-height) - 50px * 2);
   width: calc(100vw - 50px * 2);
   border: 1px solid #2151c9;
   border-radius: 20px;

@@ -1,3 +1,10 @@
+const documentHeight = () => {
+  const doc = document.documentElement
+  doc.style.setProperty('--doc-height', `${window.innerHeight}px`)
+}
+window.addEventListener('resize', documentHeight)
+documentHeight()
+
 const mainElement = document.querySelector('main')
 const textElement = document.querySelector('.floating-text')
 const offset = 50
