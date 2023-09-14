@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Inclusive+Sans&family=Monsieur+La+Doulaise&display=swap');
+
+body {
+  margin: 50px;
+  overflow: hidden;
+  background-color: #ede9e3;
+  color: #2151c9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inclusive Sans', sans-serif;
+}
+
+svg text {
+  fill: #2151c9;
+  font-size: 17.5px;
+  letter-spacing: 1.3875px;
+}
+
+svg {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+path {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  height: calc(100vh - 50px * 2);
+  width: calc(100vw - 50px * 2);
+  border: 1px solid #2151c9;
+  border-radius: 20px;
+}
+
+.floating-text {
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.first {
+  display: block;
+  font-family: 'Monsieur La Doulaise', cursive;
+  font-size: 60px;
+  line-height: 1;
+  margin-bottom: -29px;
+  padding-top: 17px;
+}
+
+.second {
+  font-family: 'Grandiflora One', serif;
+  font-size: 45px;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  .first {
+    font-size: 100px;
+  }
+
+  .second {
+    font-size: 75px;
+  }
+}
