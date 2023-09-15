@@ -1,5 +1,7 @@
 # A website for people who have Covid
 
+Project board: https://github.com/users/jenniferhail/projects/3/views/1
+
 ## What is this?
 
 Two days ago (September 12, 2023), I had the idea to check for the domain ihavecovid.com. I was shocked to find that it was still available, so I bought it for $9 and decided that I’m going to make a fun little side project with it!
