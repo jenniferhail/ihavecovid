@@ -6,8 +6,8 @@ import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 const DialogDemo = () => (
   <Dialog.Root>
     <Dialog.Trigger asChild>
-      <button className="inline-flex h-[35px] items-center justify-center rounded-[4px] bg-white px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
-        <InfoCircledIcon /> <VisuallyHidden>Information</VisuallyHidden>
+      <button className="absolute top-[50px] right-[50px] inline-flex h-[45px] w-[45px] items-center justify-center rounded-[4px px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
+        <InfoCircledIcon /> <VisuallyHidden>Get Information</VisuallyHidden>
       </button>
     </Dialog.Trigger>
     <Dialog.Portal client:load>
