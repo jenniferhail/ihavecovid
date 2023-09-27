@@ -1,0 +1,19 @@
+<svg viewBox="0 0 128 128" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M61 128L61 -2.01482e-07L66 0L66 128L61 128Z" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M37.083 122.347L85.285 3.76994L89.917 5.65283L41.7149 124.23L37.083 122.347Z" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M41.7169 3.76922L89.915 122.348L85.2831 124.231L37.0849 5.65195L41.7169 3.76922Z" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.05242 37.8059L123.813 85.555L121.948 90.1941L3.18722 42.445L5.05242 37.8059Z" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.18601 85.5516L121.949 37.8092L123.814 42.4484L5.05095 90.1908L3.18601 85.5516Z" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M106.987 111.023L16.4774 20.5129L20.0129 16.9774L110.523 107.487L106.987 111.023Z" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M110.523 20.5129L20.0129 111.023L16.4774 107.487L106.987 16.9774L110.523 20.5129Z" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.02964e-07 61L128 61L128 66L0 66L4.02964e-07 61Z" />
+    </g>
+    <style>
+        path { fill: #2151C9; }
+        @media (prefers-color-scheme: dark) {
+            path { fill: #ede9e3; }
+        }
+    </style>
+</svg>

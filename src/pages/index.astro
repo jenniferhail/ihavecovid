@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="I Have Covid...">
+  <main>
+    <div class="floating-text">
+      <span class="first">That</span>
+      <span class="second">sucks</span>
+    </div>
+    <svg id="border" width="100%" height="100%">
+      <text>
+        <textPath id="text-path" xlink:href="#curve"></textPath>
+      </text>
+    </svg>
+  </main>
+</Layout>
+
+<script>
+  const documentHeight = () => {
+    const doc = document.documentElement
+    doc.style.setProperty('--doc-height', `${window.innerHeight}px`)
+  }
+  window.addEventListener('resize', documentHeight)
+  documentHeight()
+
+  const mainElement: HTMLElement | null = document.querySelector('main')
+  const textElement: HTMLElement | null =
+    document.querySelector('.floating-text')
+  const offset = 50
+  let xDirection = 1
+  let yDirection = 1
+
+  const floatingText = () => {
+    if (mainElement && textElement) {
+      const { width: mainWidth, height: mainHeight } =
+        mainElement.getBoundingClientRect()
+      const { width: textWidth, height: textHeight } =
+        textElement.getBoundingClientRect()
+
+      let currentX = parseFloat(getComputedStyle(textElement).left || '0')
+      let currentY = parseFloat(getComputedStyle(textElement).top || '0')
+
+      let newX = currentX + xDirection
+      let newY = currentY + yDirection
+
+      if (newX + textWidth > mainWidth + offset || newX < offset) {
+        xDirection *= -1
+      }
+
+      if (newY + textHeight > mainHeight + offset || newY < offset) {
+        yDirection *= -1
+      }
+
+      textElement.style.left = newX + 'px'
+      textElement.style.top = newY + 'px'
+
+      requestAnimationFrame(floatingText)
+    }
+  }
+
+  floatingText()
+
+  const widthAdjust = 108 + 13
+  const heightAdjust = 106 + 13
+  const radius = 29
+
+  // Add text to SVG
+  function addText() {
+    const textPathElement = document.getElementById('text-path')
+    const windowWidth = window.innerWidth
+    const windowHeight = window.innerHeight
+    const borderLength =
+      (windowWidth - widthAdjust) * 2 + (windowHeight - heightAdjust) * 2
+    const textSize = 138
+    const oSize = 10
+    let amount = (borderLength - textSize) / oSize
+    amount = Math.floor(amount)
+    let text = ' n!   Feel better s'
+
+    for (let index = 0; index < amount; index++) {
+      text += 'o'
+    }
+
+    if (textPathElement) {
+      textPathElement.textContent = text
+    }
+  }
+
+  // Set initial size of SVG
+  function setInitialSVGSize() {
+    const windowWidth = window.innerWidth
+    const windowHeight = window.innerHeight
+
+    const parentSvg = document.getElementById('border')
+    const pathElement = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'path'
+    )
+    pathElement.setAttribute('id', 'curve')
+    pathElement.setAttribute(
+      'd',
+      `M 60 32 h ${
+        windowWidth - widthAdjust
+      } a ${radius} ${radius} 0 0 1 ${radius} ${radius} v ${
+        windowHeight - heightAdjust
+      } a ${radius} ${radius} 0 0 1 -${radius} ${radius} h -${
+        windowWidth - widthAdjust
+      } a ${radius} ${radius} 0 0 1 -${radius} -${radius} v -${
+        windowHeight - heightAdjust
+      } a ${radius} ${radius} 0 0 1 ${radius} -${radius}`
+    )
+    pathElement.setAttribute('fill', 'transparent')
+    console.log('pathElement', pathElement)
+    parentSvg?.appendChild(pathElement)
+    addText()
+  }
+
+  setInitialSVGSize()
+
+  // Update path when window size changes
+  function updatePathD() {
+    const windowWidth = window.innerWidth
+    const windowHeight = window.innerHeight
+    const pathElement = document.getElementById('curve')
+    const newPathD = `M 60 32 h ${
+      windowWidth - widthAdjust
+    } a ${radius} ${radius} 0 0 1 ${radius} ${radius} v ${
+      windowHeight - heightAdjust
+    } a ${radius} ${radius} 0 0 1 -${radius} ${radius} h -${
+      windowWidth - widthAdjust
+    } a ${radius} ${radius} 0 0 1 -${radius} -${radius} v -${
+      windowHeight - heightAdjust
+    } a ${radius} ${radius} 0 0 1 ${radius} -${radius}`
+    pathElement?.setAttribute('d', newPathD)
+    addText()
+  }
+
+  window.addEventListener('resize', updatePathD)
+</script>
+
+<style>
+  body {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* fallback for Js load */
+    height: var(--doc-height);
+    margin: 0;
+    padding: 0;
+  }
+
+  svg text {
+    fill: #2151c9;
+    font-size: 17.5px;
+    letter-spacing: 1.3875px;
+  }
+
+  svg {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  path {
+    width: 100%;
+    height: 100%;
+  }
+
+  main {
+    margin: 50px;
+    height: calc(var(--doc-height) - 50px * 2);
+    width: calc(100vw - 50px * 2);
+    border: 1px solid #2151c9;
+    border-radius: 20px;
+  }
+
+  .floating-text {
+    position: absolute;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .first {
+    display: block;
+    font-family: 'Monsieur La Doulaise', cursive;
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: -29px;
+    padding-top: 17px;
+  }
+
+  .second {
+    font-family: 'Grandiflora One', serif;
+    font-size: 45px;
+    text-transform: uppercase;
+  }
+
+  @media screen and (min-width: 768px) {
+    .first {
+      font-size: 100px;
+    }
+
+    .second {
+      font-size: 75px;
+    }
+  }
+</style>
