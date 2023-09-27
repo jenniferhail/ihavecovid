@@ -1,5 +1,7 @@
 ---
+import '@/global/globals.css'
 import Layout from '../layouts/Layout.astro'
+import DialogDemo from '../components/Info'
 ---
 
 <Layout title="I Have Covid...">
@@ -8,6 +10,7 @@ import Layout from '../layouts/Layout.astro'
       <span class="first">That</span>
       <span class="second">sucks</span>
     </div>
+    <DialogDemo client:load />
     <svg id="border" width="100%" height="100%">
       <text>
         <textPath id="text-path" xlink:href="#curve"></textPath>
