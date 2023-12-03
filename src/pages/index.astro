@@ -1,16 +1,16 @@
 ---
 import '@/global/globals.css'
 import Layout from '../layouts/Layout.astro'
-import DialogDemo from '../components/Info'
+import InfoButton from '../components/Info'
 ---
 
 <Layout title="I Have Covid...">
   <main>
     <div class="floating-text">
-      <span class="first">That</span>
-      <span class="second">sucks</span>
+      <span class="first script">That</span>
+      <span class="second caps">sucks</span>
     </div>
-    <DialogDemo client:load />
+    <InfoButton client:load />
     <svg id="border" width="100%" height="100%">
       <text>
         <textPath id="text-path" xlink:href="#curve"></textPath>
@@ -189,17 +189,13 @@ import DialogDemo from '../components/Info'
 
   .first {
     display: block;
-    font-family: 'Monsieur La Doulaise', cursive;
     font-size: 60px;
-    line-height: 1;
     margin-bottom: -29px;
     padding-top: 17px;
   }
 
   .second {
-    font-family: 'Grandiflora One', serif;
     font-size: 45px;
-    text-transform: uppercase;
   }
 
   @media screen and (min-width: 768px) {

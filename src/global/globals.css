@@ -74,3 +74,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+.script {
+  font-family: 'Monsieur La Doulaise', cursive;
+  font-size: 60px;
+  line-height: 1;
+}
+
+.caps {
+  font-family: 'Grandiflora One', serif;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: underline;
+}
